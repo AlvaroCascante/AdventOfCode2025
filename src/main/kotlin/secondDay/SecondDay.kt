@@ -34,9 +34,39 @@ class SecondDay: Solution {
     }
 
     override fun solveSecond(): Any {
-        return "Second Day - Second Exercise"
+        val data = parseIdsData()
+
+        var sum = 0L
+        data.forEach {
+            var id = it.initId
+            while (id <= it.endId) {
+                var size = 1
+                val idString = id.toString()
+                while (size <= idString.length / 2) {
+                    if (check(idString, size)) {
+                        sum += id
+                        break
+                    } else {
+                        size++
+                    }
+                }
+                id ++
+            }
+        }
+        return sum
     }
 
+    private fun check(text: String, size: Int): Boolean {
+        if (text.length % size != 0) return false
+        val subText = text.take(size)
+        for (i in size until text.length step size) {
+            val next = text.substring(i, i + size)
+            if (subText != next) {
+                return false
+            }
+        }
+        return true
+    }
     private fun parseIdsData(): List<IdsData> {
         val lines = FileUtil.readFileAsList("/second_day.txt")
         val result = mutableListOf<IdsData>()
