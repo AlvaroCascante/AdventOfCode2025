@@ -1,4 +1,4 @@
-package fifthDay
+package firstDay
 
 import Solution
 import util.FileUtil

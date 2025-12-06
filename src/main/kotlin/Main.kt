@@ -1,10 +1,8 @@
-import firstDay.FifthDay
-import fourthDay.FourthDay
-import secondDay.SecondDay
-import thirdDay.ThirdDay
+import fifthDay.FifthDay
+import sixthDay.SixthDay
 
 fun main() {
-    val exercise = FifthDay()
+    val exercise = SixthDay()
     val response = exercise.solveSecond()
     println("Response: $response")
 }
